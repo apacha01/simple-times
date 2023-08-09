@@ -1,0 +1,14 @@
+{
+  "name": "practice-npm",
+  "version": "1.0.0",
+  "description": "Practice project to use npm",
+  "main": "clock.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Agustin Pacheco",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dayjs": "^1.11.9"
+  }
+}
