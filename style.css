@@ -1,0 +1,50 @@
+.time-container {
+	width: 80vw;
+	height: 80vh;
+	margin: 10vh 0 0 10vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #e8e8e8;
+	border-radius: 20px;
+}
+
+p {
+	width: 85%;
+	text-align: right;
+}
+
+.timezone,
+.time,
+.date {
+	display: flex;
+	width: 90%;
+	height: 30%;
+}
+
+.timezone {
+	align-items: flex-end;
+}
+
+.time {
+	height: auto;
+	align-items: center;
+}
+
+.date {
+	align-items: flex-start;
+}
+
+#timezone {
+	color: darkgray;
+	font-size: x-large;
+}
+
+#time {
+	font-size: xxx-large;
+}
+
+#date {
+	font-size: xx-large;
+}
