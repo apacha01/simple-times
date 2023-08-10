@@ -25,6 +25,7 @@ p {
 
 .timezone {
 	align-items: flex-end;
+	width: calc(85% - 31px);
 }
 
 .time {

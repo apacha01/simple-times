@@ -4,19 +4,44 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="_reset.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="clock.css">
+	<link rel="stylesheet" href="micromodal.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Simple Times</title>
 </head>
 <body>
 	<div class="time-container">
 		<div class="timezone">
-			<p id="timezone">test timezone</p>
+			<p id="timezone">Timezone</p>
+			<a class="modal-trigger" href="#" data-micromodal-trigger="modal-1"><i class="fa-regular fa-calendar"></i></a>
 		</div>
 		<div class="time">
-			<p id="time">06:17:21</p>
+			<p id="time">??:??:??</p>
 		</div>
 		<div class="date">
-			<p id="date">Someday 9 of somemonth</p>
+			<p id="date">week, day month of year</p>
+		</div>
+	</div>
+	<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+		<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+			<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+				<header class="modal__header">
+					<h2 class="modal__title" id="modal-1-title">
+						Change Timezone
+					</h2>
+					<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+				</header>
+				<main class="modal__content" id="modal-1-content">
+					<input type="text" name="timezone" list="timezones-datalist" placeholder="Pick a timezone">
+						<datalist id="timezones-datalist">
+						</datalist>
+				</main>
+				<footer class="modal__footer">
+					<button class="modal__btn modal__btn-primary">Apply</button>
+					<button class="modal__btn" data-micromodal-close
+						aria-label="Close this dialog window">Close</button>
+				</footer>
+			</div>
 		</div>
 	</div>
 	<script src="./node_modules/dayjs/plugin/utc.js"></script>
@@ -26,6 +51,7 @@
 		dayjs.extend(window.dayjs_plugin_utc)
 		dayjs.extend(window.dayjs_plugin_timezone)
 	</script>
+	<script src="./node_modules/micromodal/dist/micromodal.js"></script>
 	<script src="clock.js"></script>
 </body>
 </html>
