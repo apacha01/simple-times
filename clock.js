@@ -1,10 +1,18 @@
+import tz from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+import dayjs from 'dayjs'
+import MicroModal from 'micromodal'
+import tzs from 'timezones-list/src/timezones.json'
+
+dayjs.extend(utc)
+dayjs.extend(tz)
+
 // DOM constants
 const timezone = document.getElementById('timezone')
 const time = document.getElementById('time')
 const date = document.getElementById('date')
 const tzsOptions = document.getElementById('timezones-datalist')
 const btnApply = document.getElementById('apply-tz')
-const tzsPath = './node_modules/timezones-list/src/timezones.json';
 
 // Date - Time Functions
 const getTimezone = () => currTz.replace('/', ' / ').replace('_', ' ')
@@ -13,16 +21,12 @@ const getDate = () => dayjs().tz(currTz).format('dddd, D MMM, YYYY')
 const updateTimezone = () => timezone.innerText = getTimezone()
 const updateTime = () => setInterval(() => time.innerText = getTime(), 1000)
 const updateDate = () => setInterval(() => date.innerText = getDate(), 1000)
-const createTimezonesOptinos = () => {
-	fetch(tzsPath)
-	.then(res => res.json())
-	.then(tzs => {
-		tzs.forEach(tz => {
-			let opt = document.createElement('option')
-			opt.value = tz.tzCode.replace('/', ' / ').replace('_', ' ')
-			tzsOptions.appendChild(opt)
-		})
-	})
+const createTimezonesOptions = () => {
+	tzs.forEach(tz => {
+		let opt = document.createElement('option')
+		opt.value = tz.tzCode.replace('/', ' / ').replace('_', ' ')
+		tzsOptions.appendChild(opt)
+	});
 }
 
 // Aux
@@ -35,7 +39,7 @@ updateDate()
 
 MicroModal.init('modal-1')
 
-createTimezonesOptinos()
+createTimezonesOptions()
 
 btnApply.addEventListener('click', () => {
 	let t = document.getElementById('timezone-input').value
