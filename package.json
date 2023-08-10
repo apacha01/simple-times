@@ -4,7 +4,8 @@
   "description": "Clock webpage with options to change the timezone.",
   "main": "clock.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"bundle": "webpack --progress --mode=production"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
     "dayjs": "^1.11.9",
     "micromodal": "^0.4.10",
     "timezones-list": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
